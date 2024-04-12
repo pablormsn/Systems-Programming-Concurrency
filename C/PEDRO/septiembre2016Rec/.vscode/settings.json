@@ -1,0 +1,10 @@
+{
+    "files.associations": {
+        "stdlib.h": "c",
+        "string.h": "c",
+        "planificador.h": "c",
+        "stdio.h": "c",
+        "mprocesos.h": "c"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
+}

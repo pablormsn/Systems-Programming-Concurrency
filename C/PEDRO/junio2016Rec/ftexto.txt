@@ -1,0 +1,4 @@
+Jugador pepe2, con identificador 1 y 1 goles
+Jugador pepe, con identificador 2 y 3 goles
+Jugador pepe4, con identificador 3 y 1 goles
+Jugador pepe3, con identificador 4 y 1 goles

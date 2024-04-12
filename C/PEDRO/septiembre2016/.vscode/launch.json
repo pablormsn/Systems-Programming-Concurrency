@@ -1,0 +1,18 @@
+{
+   
+    "version": "0.2.0",
+"configurations": [
+{
+"name": "Debug2012",
+"type": "cppdbg",
+"request": "launch",
+"program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+"args": ["C:\\Users\\pdrof\\Desktop\\programasC\\septiembre2016\\Salida.bin"],
+"stopAtEntry": false,
+"cwd": "${fileDirname}",
+"MIMode": "gdb",
+"miDebuggerPath": "C:\\mingw64\\bin\\gdb.exe",
+"preLaunchTask": "CompilarPractica2012"
+}
+]
+}
