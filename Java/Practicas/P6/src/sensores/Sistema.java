@@ -32,7 +32,7 @@ public class Sistema {
 		mutex.acquire();
 		medidas[id] = dato;
 		nMedidas++;
-		System.out.println("Medida "+id+" puesta");
+		System.out.println("Sensor "+id+" pone dato "+dato);
 		if(nMedidas == 3) {
 			puedeProcesar.release();
 		}
