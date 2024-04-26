@@ -7,23 +7,51 @@ public class Sistema {
 	private int medidas[];
 	private int nMedidas;
 	//TODO
+	private Semaphore mutex;
+	private Semaphore puedeProcesar; //Abierto si hay medidas para procesar, cerrado en otro caso
+	private Semaphore puedeMedir[]; //Abierto si se puede poner una medida, cerrado en otro caso
+
+
 	
 	public Sistema() {
 		medidas = new int[3];
 		nMedidas = 0;
 		//TODO
+		mutex = new Semaphore(1);
+		puedeMedir = new Semaphore[3];
+		for(int i = 0; i < 3; i++) {
+			puedeMedir[i] = new Semaphore(1);
+		}
+		puedeProcesar = new Semaphore(0);
+
 	}
 	
 	public void ponerMedida(int id, int dato) throws InterruptedException {
 		//TODO
+		puedeMedir[id].acquire();
+		mutex.acquire();
+		medidas[id] = dato;
+		nMedidas++;
+		System.out.println("Medida "+id+" puesta");
+		if(nMedidas == 3) {
+			puedeProcesar.release();
+		}
+		mutex.release();
 	}
 	
 	public void procesarMedidas() throws InterruptedException {
 		//TODO
-			
-				
+		puedeProcesar.acquire();
+		mutex.acquire();
 		System.out.println( "Luz "+ medidas[0]  +" Hum "+medidas[1] +" Temp "+medidas[2]);
+		nMedidas = 0;
+		for(int i = 0; i < 3; i++) {
+			puedeMedir[i].release();
+		}
+		mutex.release();
+
 		
+
 		
 	}
 
