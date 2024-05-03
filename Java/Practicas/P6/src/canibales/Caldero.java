@@ -3,28 +3,45 @@ import java.util.concurrent.Semaphore;
 
 public class Caldero {
 	private int raciones, maxRaciones;
+	private Semaphore mutex;
+	private Semaphore puedeComer;
+	private Semaphore puedeCocinar;
 	//TODO 
 	public Caldero(int max) {
 		raciones = 0;
 		maxRaciones = max;
 		//TODO
+		mutex = new Semaphore(1);
+		puedeComer = new Semaphore(0);
+		puedeCocinar = new Semaphore(0);
+
 	}
 	public void comer(int id) throws InterruptedException {
-		//TODO 
-		
-		System.out.println("Canibal "+id+" avisa al cocinero");
-		
-		
-		System.out.println("Canibal "+id+ " come");
-		
+		//TODO
+		mutex.acquire();
+		if(raciones == 0) {
+			System.out.println("Canibal "+id+" avisa al cocinero");
+			puedeCocinar.release();
+		}
+		mutex.release();
+		puedeComer.acquire();
+		mutex.acquire();
+		System.out.println("Canibal "+id+" come");
+		raciones--;
+		mutex.release();
+		puedeComer.release();
 	}
 
 	public void cocinar() throws InterruptedException {
-		//TODO 
-		
+		//TODO
+		puedeCocinar.acquire();
+		mutex.acquire();
 		System.out.println("Cocinero prepara 10 raciones");
-		
-		
+		raciones = maxRaciones;
+		mutex.release();
+		for(int i = 0; i < maxRaciones; i++) {
+			puedeComer.release();
+		}
 	}
 
 	public static void main(String[] args) {
