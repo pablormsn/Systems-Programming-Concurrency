@@ -1,4 +1,4 @@
-package esqueleto;
+package semaforos;
 
 import java.util.concurrent.Semaphore;
 
