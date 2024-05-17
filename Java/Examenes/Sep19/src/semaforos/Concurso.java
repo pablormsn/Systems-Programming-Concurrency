@@ -10,9 +10,9 @@ public class Concurso {
 	private Semaphore puedeTirarJugador2 = new Semaphore(1); // id = 1
 	private Semaphore mutex = new Semaphore(1);
 
-	
 
-	
+
+
 	public void tirarMoneda(int id,boolean cara) throws InterruptedException {
 		if(id == 0){ // jugador 0;
 			puedeTirarJugador1.acquire();
@@ -80,11 +80,11 @@ public class Concurso {
 			}
 			mutex.release();
 		}
-		
-		
-	}	
-	
-	public boolean concursoTerminado() {	
-		return concursoTerminado; 
+
+
+	}
+
+	public boolean concursoTerminado() {
+		return concursoTerminado;
 	}
 }
