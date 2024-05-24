@@ -1,3 +1,4 @@
+package rusa;
 public class Pasajero extends Thread {
 	private int id;
 	private Coche coche;

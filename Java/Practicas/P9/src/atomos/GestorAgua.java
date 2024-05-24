@@ -34,13 +34,45 @@ public class GestorAgua {
 				moleculaFormada.signalAll();
 				System.out.println("Molecula de agua formada");
 			}
+
+			if(atomosH<2 || !atomosO){
+				moleculaFormada.await();
+			}
+			System.out.println("Atomo de hidrogeno " + id + " ha salido");
+			atomosH--;
+
+			if (atomosH == 0){
+				puedenEntrarH.signalAll();
+			}
 		}
-		finally{
+		finally {
 			l.unlock();
+		}
 	}
 	
 	public void oListo(int id) throws InterruptedException { 
 		//ENTRA UN ATOMO DE OXIGENO
+		l.lock();
+		try{
+			while (atomosO){
+				puedenEntrarO.await();
+			}
+			System.out.println("Atomo de oxigeno " + id + " ha entrado");
+			atomosO = true;
+			if (atomosH == 2){
+				moleculaFormada.signalAll();
+				System.out.println("Molecula de agua formada");
+			}
+			if(atomosH<2){
+				moleculaFormada.await();
+			}
+			System.out.println("Atomo de oxigeno " + id + " ha salido");
+			atomosO = false;
+			puedenEntrarO.signalAll();
+		}
+		finally {
+			l.unlock();
+		}
 
 	}
 }

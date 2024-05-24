@@ -1,4 +1,4 @@
-
+package impresoras;
 import java.util.Random;
 
 public class Documento extends Thread {

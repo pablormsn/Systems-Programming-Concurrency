@@ -1,3 +1,4 @@
+package rusa;
 public class ControlAtraccion extends Thread{
 	
 	private Coche coche;
