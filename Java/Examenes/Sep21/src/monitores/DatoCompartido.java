@@ -16,8 +16,8 @@ public class DatoCompartido {
 	Condition puedoProcesarNuevoDato = l.newCondition();
 
 
-	/* Recibe como parámetro el número de procesadores que tienen que manipular
-	 * cada dato generado. Debe ser un número mayor que 0.
+	/* Recibe como parï¿½metro el nï¿½mero de procesadores que tienen que manipular
+	 * cada dato generado. Debe ser un nï¿½mero mayor que 0.
 	 */
 	public DatoCompartido(int nProcesadores) {
 		if(nProcesadores > 0){
@@ -40,7 +40,7 @@ public class DatoCompartido {
 	 *  terminen antes de generar el siguiente dato
 	 */
 	public int generaDato(int d) throws InterruptedException{
-		//COMPLETAR y colocar los mensajes en el lugar apropiado dentro del código
+		//COMPLETAR y colocar los mensajes en el lugar apropiado dentro del cï¿½digo
 		l.lock();
 		try{
 			dato = d;
@@ -98,7 +98,7 @@ public class DatoCompartido {
 	 *
 	 */
 	public void actualizaDato(int id, int datoActualizado) {
-		//COMPLETAR y colocar los mensajes en el lugar apropiado dentro del código
+		//COMPLETAR y colocar los mensajes en el lugar apropiado dentro del cï¿½digo
 		l.lock();
 		try{
 			dato = datoActualizado;
