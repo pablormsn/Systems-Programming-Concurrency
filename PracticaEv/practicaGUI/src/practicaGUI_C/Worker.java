@@ -112,32 +112,4 @@ public class Worker extends SwingWorker<Void,Primos>{
         }
 
     }
-
-    /*
-    * public void done(){
-        try{
-            if(tipo == 1){
-                panel.limpiaAreaTwin();
-                panel.escribePrimosTwin(get());
-                panel.mensaje("GUI creada\n");
-            }else if(tipo == 2){
-                panel.limpiaAreaCousin();
-                panel.escribePrimosCousin(get());
-                panel.mensaje("GUI creada\n");
-            }else if(tipo == 3){
-                panel.limpiaAreaSexy();
-                panel.escribePrimosSexy(get());
-                panel.mensaje("GUI creada\n");
-            }
-        }catch (InterruptedException e){
-            System.out.println("Tarea interrumpida");
-            e.printStackTrace();
-        }catch (ExecutionException | CancellationException e) {
-            System.out.println("Tarea cancelada");
-            e.printStackTrace();
-        }
-
-    }
-    * */
-
 }

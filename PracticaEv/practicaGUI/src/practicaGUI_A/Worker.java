@@ -37,7 +37,7 @@ public class Worker extends SwingWorker<List<Primos>, Void>{
         long primoA = 0;
         long primoB = 0;
         int pos = 0;
-        while (primos.size() < n) {
+        while (primos.size() < n && !isCancelled()) {
             if (esPrimo(i)) {
                 if (tipo == 1) {
                     if (esPrimo(i + 2)) {
@@ -94,6 +94,4 @@ public class Worker extends SwingWorker<List<Primos>, Void>{
         }
 
     }
-
-
 }
