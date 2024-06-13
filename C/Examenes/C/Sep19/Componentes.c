@@ -40,7 +40,6 @@ void Lista_Imprimir(Lista lista){
     if(lista == NULL){ // Si la lista está vacía
         printf("La lista está vacía.\n"); // Imprimimos un mensaje
     }else{
-
         int i = 1; // Inicializamos un contador a 1
         while(lista != NULL){ //Mientras no lleguemos al final de la lista
             printf("Nodo %i con codigo %ld y texto%s\n", i, lista->codigoComponente, lista->textoFabricante); // Imprimimos el nodo

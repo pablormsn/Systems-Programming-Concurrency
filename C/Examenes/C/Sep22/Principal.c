@@ -83,6 +83,7 @@ int main(){
 	
 	/* Mostrar Tren */
 	imprimeTren(tren,maximoVagones);
+	printf("\nSegunda fase\n\n");
 
 	/* Salida pasajeros*/
 	res = salePasajero(tren, 0, 1);
@@ -103,6 +104,7 @@ int main(){
 	assert(res==-1);
 
 	imprimeTren(tren,maximoVagones);
+	printf("\nTercera fase\n\n");
 
 	/* Entran más pasajeros */
 	strcpy(nombre, "Josefa Valverde");
@@ -116,6 +118,7 @@ int main(){
 	assert(tren[0]->sig->num == 3);
 
 	imprimeTren(tren,maximoVagones);
+	printf("\nCuarta fase\n\n");
 
 
 	/* Intercambio de pasajeros */
@@ -136,6 +139,7 @@ int main(){
 	assert(res == -1);
 
 	imprimeTren(tren,maximoVagones);
+	printf("\nQuinta fase\n\n");
 
 	/* Se bajan todos los pasajeros del tren */
 
@@ -144,6 +148,7 @@ int main(){
 	imprimeTren(tren,maximoVagones);
 
 	/* Carga de fichero BINARIO los pasajeros del vagon 0 y 1 */
+	printf("\nSexta fase\n\n");
 
 	importarPasajerosVagon("vagon0.bin",tren,0);
 	importarPasajerosVagon("vagon1.bin",tren,1);

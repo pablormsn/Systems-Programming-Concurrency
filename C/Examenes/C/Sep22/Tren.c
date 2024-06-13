@@ -94,16 +94,21 @@ Asiento 1, Macarena Sol
 /// @param maximoVagones Máximo de vagones que tiene el tren. 
 /// 0.75 pt 
 void imprimeTren(Vagon * tren, unsigned maximoVagones){
-    for(int i=0; i<maximoVagones; i++){ //Recorremos todos los vagones
-        Vagon curr = tren[i]; //Creamos un puntero curr que apunta al vagon actual
-        if(curr != NULL){
-            printf("Vagon %d:\n", i); //Imprimimos el número de vagon
-            while(curr != NULL){  //Mientras no lleguemos al final de la lista
-                printf("Asiento %d, %s\n", curr->num, curr->nombre); //Imprimimos el número de asiento y el nombre
-                curr = curr->sig; //Avanzamos al siguiente asiento
+    if(*tren==NULL){ //Si el tren está vacío
+        printf("El tren está vacío\n"); //Imprimimos un mensaje
+    }else{
+        for(int i=0; i<maximoVagones; i++){ //Recorremos todos los vagones
+            Vagon curr = tren[i]; //Creamos un puntero curr que apunta al vagon actual
+            if(curr != NULL){
+                printf("Vagon %d:\n", i); //Imprimimos el número de vagon
+                while(curr != NULL){  //Mientras no lleguemos al final de la lista
+                    printf("Asiento %d, %s\n", curr->num, curr->nombre); //Imprimimos el número de asiento y el nombre
+                    curr = curr->sig; //Avanzamos al siguiente asiento
+                }
             }
         }
     }
+    
 }
 
 /// @brief El pasajero abandona el tren (es eliminado de la estructura).  
@@ -177,7 +182,7 @@ int intercambianAsientos(Vagon * tren, unsigned numeroVagon1, unsigned numeroAsi
 /// @param maximoVagones Maximo de vagones que tiene el tren. 
 /// 1 pt 
 void ultimaParada(Vagon * tren, unsigned maximoVagones){
-    for(int i=0; i<maximoVagones; i++){//Recorremos los vagones del tren
+    for(unsigned int i=0; i<maximoVagones; i++){//Recorremos los vagones del tren
         while(tren[i] != NULL){ //Mientras haya pasajeros en el vagon
             Vagon aux = tren[i]; //Creamos un puntero auxiliar que apunta al vagon
             tren[i] = tren[i]->sig; //El vagon actual es el siguiente
